@@ -10,6 +10,7 @@ from models.state import State
 from models.city import City
 from models.amenity import Amenity
 from models.review import Review
+from models.engine.file_storage import FileStorage
 
 
 class HBNBCommand(cmd.Cmd):
@@ -129,8 +130,8 @@ class HBNBCommand(cmd.Cmd):
                 values = float(values)
             else:
                 values = int(values)
-            obj_name = eval(split_[0])()
             setattr(obj_name, keys, values)
+        obj_name = eval(split_[0])()
         obj_name.save()
         print(obj_name.id)
 
