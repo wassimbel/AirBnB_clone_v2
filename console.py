@@ -120,7 +120,7 @@ class HBNBCommand(cmd.Cmd):
             print("class does not exist")
         exclude = split_[1:]
         for i in exclude:
-            keys =  i.split("=")[0]
+            keys = i.split("=")[0]
             values = i.split("=")[1]
             if values[0] == '"':
                 values = values.replace("_", " ")
