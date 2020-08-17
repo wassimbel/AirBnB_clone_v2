@@ -31,5 +31,5 @@ elif [[ ! -h /data/web_static/current ]]; then
 fi
 sudo chown ubuntu:ubuntu /data/
 
-sudo sed -i '45i \\tlocation /web_static {\n\t\talias /data/web_static/current/;\n}' /etc/nginx/sites-enabled/default
+sudo sed -i '45i \\tlocation /hbnb_static {\n\t\talias /data/web_static/current/;\n}' /etc/nginx/sites-enabled/default
 sudo service nginx restart
