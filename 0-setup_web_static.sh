@@ -21,6 +21,7 @@ if [[ ! -d /data/web_static/releases/test/ ]]; then
 fi
 if [[ ! -f /data/web_static/releases/test/index.html ]]; then
     sudo touch /data/web_static/releases/test/index.html
+    echo "Holberton School" | sudo tee /data/web_static/releases/test/index.html
 fi
 if [[ -h /data/web_static/current ]]; then
     sudo rm -rf /data/web_static/current
