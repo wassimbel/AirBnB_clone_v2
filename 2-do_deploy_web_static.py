@@ -6,7 +6,7 @@ from os import path
 from datetime import datetime
 
 
-env.hosts = ['34.229.124.30', '34.73.6.154']
+env.hosts = ['34.75.74.221', '34.73.6.154']
 env.user = 'ubuntu'
 env.key_filename = '~/.ssh/id_rsa'
 
@@ -17,7 +17,7 @@ def do_deploy(archive_path):
         return False
     put("archive_path", "/tmp/")
     fp = archive_path.split('/')[-1].split('.')[0]
-    run("mkdir -p /data/web_static/releases/fp")
+    run("mkdir -p /data/web_static/releases/{}".format(fp))
     run("tar xzf /tmp/{}.tgz -C /data/web_static/releases/{}".format(fp, fp))
     run("rm -rf /tmp/{}".tgz.format(fp))
     run("mv /data/web/static/releases/{}/web_static/*\
