@@ -15,15 +15,14 @@ def do_deploy(archive_path):
     """ function to deploy """
     if not path.exists(archive_path):
         return False
-    put("archive_path", "/tmp/")
+    put(archive_path, "/tmp/")
     fp = archive_path.split('/')[-1].split('.')[0]
     run("mkdir -p /data/web_static/releases/{}".format(fp))
     run("tar xzf /tmp/{}.tgz -C /data/web_static/releases/{}".format(fp, fp))
     run("rm -rf /tmp/{}.tgz".format(fp))
-    run("mv /data/web/static/releases/{}/web_static/*\
-        /data/web_static/releases/{}".format(fp, fp))
+    run("mv -f /data/web_static/releases/{}/web_static/* /data/web_static/releases/{}".format(fp, fp))
     run("rm -rf /data/web_static/current")
-    run("run: rm -rf /data/web_static/releases/{}/web_static".format(fp))
+    run("rm -rf /data/web_static/releases/{}/web_static".format(fp))
     run("ln -sf /data/web_static/releases/{}\
          /data/web_static/current".format(fp))
     return True
