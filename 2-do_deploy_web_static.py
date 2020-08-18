@@ -19,7 +19,7 @@ def do_deploy(archive_path):
     fp = archive_path.split('/')[-1].split('.')[0]
     run("mkdir -p /data/web_static/releases/{}".format(fp))
     run("tar xzf /tmp/{}.tgz -C /data/web_static/releases/{}".format(fp, fp))
-    run("rm -rf /tmp/{}".tgz.format(fp))
+    run("rm -rf /tmp/{}.tgz".format(fp))
     run("mv /data/web/static/releases/{}/web_static/*\
         /data/web_static/releases/{}".format(fp, fp))
     run("rm -rf /data/web_static/current")
