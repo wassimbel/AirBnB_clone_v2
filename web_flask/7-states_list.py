@@ -6,6 +6,7 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
+
 @app.teardown_appcontext
 def down(self):
     """ After each request you must remove the current SQLAlchemy Session """
