@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 """ module - starts a Flask web application: """
 from models import storage
-from flask import FLASK, render_template
+from flask import Flask, render_template
 
 
-app = FLASK(__name__)
+app = Flask(__name__)
 
 @app.teardown_appcontext
 def down():
