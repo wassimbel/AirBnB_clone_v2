@@ -12,12 +12,12 @@ class State(BaseModel, Base):
     name = Column(String(128), nullable=False)
 
     if getenv("HBNB_TYPE_STORAGE") != "db":
-    @property
-    def cities(self):
-        """  return the list of City objects from storage
-             linked to the current State """
-        c_list = {}
-        for city in models.storage.all(City).values():
-            if city.state_id == self.id:
-                c_list.append(city)
-        return c_list
+        @property
+        def cities(self):
+            """  return the list of City objects from storage
+                 linked to the current State """
+            c_list = {}
+            for city in models.storage.all(City).values():
+                if city.state_id == self.id:
+                    c_list.append(city)
+            return c_list
